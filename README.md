@@ -5,7 +5,6 @@
 ![Docker](https://img.shields.io/badge/Built%20With-Docker%20Compose-2496ED?logo=docker&logoColor=white)
 
 # SSH‑Tunnel‑Intermediate
-A hands‑on intermediate‑level SSH tunneling and pivoting lab...SSH‑Tunnel‑Intermediate
 A hands‑on intermediate‑level SSH tunneling and pivoting lab designed to teach students how to move through isolated network segments using multi‑hop SSH tunnels.
 This lab focuses on realistic lateral movement, port forwarding, and pivot chaining, all inside a safe, containerized environment.
 
