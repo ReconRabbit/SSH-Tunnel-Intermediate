@@ -1,0 +1,10 @@
+## 🐳 Setup Instructions (Docker Compose)
+
+This lab is fully containerized using **Docker Compose**.  
+To deploy the environment:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/ReconRabbit/SSH-Tunnel-Intermediate.git
+cd SSH-Tunnel-Intermediate/SSH-Tunnel-Intermediate
+docker compose up --build -d
