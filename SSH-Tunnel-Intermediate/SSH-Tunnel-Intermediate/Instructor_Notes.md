@@ -88,5 +88,5 @@ ssh -L 9004:172.32.0.50:22 final-user@172.32.0.50
 # Full chain:
 #   local → attacker → PC1 → PC2 → PC3 → PC4 → PC5
 ssh -J user-2@localhost:9001,user-3@localhost:9002,user-4@localhost:9003 final-user@localhost -p 9004
-cat /flag.txt
+cat ~/welldone.txt
 # Final flag captured.
