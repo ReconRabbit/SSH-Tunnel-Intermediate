@@ -43,7 +43,7 @@ Students progress through the environment in this order:
 7. 	Create a tunnel from PC3 → PC4
 8. 	SSH into PC4 through the chain
 9. 	Create a tunnel from PC4 → PC5
-10. 	SSH into PC5 and retrieve the final flag
+10. SSH into PC5 and retrieve the final flag
 Each step reinforces the idea that you can only pivot from the machine that has network access to the next target.
 
 📂 Included Materials
