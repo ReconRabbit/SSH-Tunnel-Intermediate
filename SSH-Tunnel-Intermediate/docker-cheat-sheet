@@ -1,0 +1,32 @@
+Building & Rebuilding
+Command	Description
+docker compose build	Builds images defined in your docker-compose.yml file.
+docker compose build --no-cache	Builds images without using the cache.
+docker compose build <service>	Builds only a specific service.
+docker compose up --build	Builds images and then starts the containers. Useful if you changed your Dockerfile.
+docker compose up --force-recreate	Recreates containers even if nothing changed.
+docker compose up --build --force-recreate	Fully rebuilds and recreates containers.
+
+Running Containers
+Command	Description
+docker compose up	Starts containers in the foreground.
+docker compose up -d	Starts containers in detached mode (in the background).
+docker compose start	Starts already created containers (doesn’t rebuild or recreate).
+
+Stopping & Removing Containers
+Command	Description
+docker compose stop	Stops running containers without removing them.
+docker compose down	Stops and removes containers, networks, and default volumes.
+docker compose down --volumes	Removes containers, networks, and named/anonymous volumes.
+docker compose down --rmi all	Also removes all built images.
+docker compose rm	Removes stopped service containers (after stop).
+docker compose kill	Forcefully stops running containers.
+
+
+Useful Inspection & Debugging
+Command	Description
+docker compose ps	Lists running services and their status.
+docker compose logs	Shows logs for all services.
+docker compose logs -f	Follow logs (like tail -f).
+docker compose exec <service> sh	Opens a shell inside a running container.
+docker compose config	Validates and shows the full resolved Compose config.

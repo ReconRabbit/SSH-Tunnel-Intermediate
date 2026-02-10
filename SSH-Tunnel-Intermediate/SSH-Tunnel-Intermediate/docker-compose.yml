@@ -1,0 +1,167 @@
+services:
+  attacker:
+    build:
+      context: .
+      dockerfile: Dockerfile1.node
+      args:
+        USERNAME: attacker
+        PASSWORD: attacker
+    container_name: attacker
+    hostname: attacker
+    tty: true
+    networks:
+      net_a:
+        ipv4_address: 172.28.0.10
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.28.0.254
+
+  pc1:
+    build:
+      context: .
+      dockerfile: Dockerfile2.node
+      args:
+        USERNAME: user-1
+        PASSWORD: franklin
+    container_name: pc1
+    hostname: pc1
+    tty: true
+    networks:
+      net_a:
+        ipv4_address: 172.28.0.11
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.28.0.254
+
+  router:
+    build:
+      context: .
+      dockerfile: Dockerfile.router
+    container_name: router
+    tty: true
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    networks:
+      net_a: #attacker & user-1
+        ipv4_address: 172.28.0.254
+      net_b: #user-2
+        ipv4_address: 172.29.0.254
+      net_c: #user-3
+        ipv4_address: 172.30.0.254
+      net_d: #user-4
+        ipv4_address: 172.31.0.254
+      net_e: #user-5
+        ipv4_address: 172.32.0.254
+  pc2:
+    build:
+      context: .
+      dockerfile: Dockerfile3.node
+      args:
+        USERNAME: user-2
+        PASSWORD: billybob
+    container_name: pc2
+    hostname: pc2
+    tty: true
+    networks:
+      net_b:
+        ipv4_address: 172.29.0.11
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.29.0.254
+
+  pc3:
+    build:
+      context: .
+      dockerfile: Dockerfile4.node
+      args:
+        USERNAME: user-3
+        PASSWORD: marigold
+    container_name: pc3
+    hostname: pc3
+    tty: true
+    networks:
+      net_c:
+        ipv4_address: 172.30.0.30
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.30.0.254
+
+
+  pc4:
+    build:
+      context: .
+      dockerfile: Dockerfile5.node
+      args:
+        USERNAME: user-4
+        PASSWORD: velvet
+    container_name: pc4
+    hostname: pc4
+    tty: true
+    networks:
+      net_d:
+        ipv4_address: 172.31.0.40
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.31.0.254
+
+  pc5:
+    build:
+      context: .
+      dockerfile: Dockerfile6.node
+      args:
+        USERNAME: final-user
+        PASSWORD: lastone
+    container_name: pc5
+    hostname: pc5
+    tty: true
+    networks:
+      net_e:
+        ipv4_address: 172.32.0.50
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - GATEWAY=172.32.0.254
+
+
+networks:
+  net_a:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+          gateway: 172.28.0.1
+
+  net_b:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24
+          gateway: 172.29.0.1
+
+
+  net_c:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+          gateway: 172.30.0.1
+
+  net_d:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
+          gateway: 172.31.0.1
+
+  net_e:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/24
+          gateway: 172.32.0.1
