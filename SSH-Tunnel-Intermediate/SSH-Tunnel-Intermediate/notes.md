@@ -13,7 +13,7 @@ pc5 - final-user : lastone 172.32.0.50 <br>
 has to be done in this order
 
 
-**LAB START**
+**LAB START** <br>
 Begin Lab by SSH'ing to attacker@172.28.0.10 
 
 Then SSH to 'user-1' with the password of 'franklin'. IP: 172.28.0.11
