@@ -7,7 +7,7 @@ ssh attacker@172.28.0.10
 
 # =========================================
 # 2. attacker → PC1
-# (pc1 creds: user-1 / franklin
+# (PC1 creds: user-1 / franklin
 # =========================================
 ssh user-1@172.28.0.11
 cat /flag.txt
